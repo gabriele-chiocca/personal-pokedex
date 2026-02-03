@@ -35,6 +35,7 @@ axios
 
 containerpoke.addEventListener('click', (e) => {
   const pokesingle = e.target.closest('.single-pokemon');
+  if (!pokesingle) return false;
 
   const id = pokesingle.dataset.id;
   console.log(id);
