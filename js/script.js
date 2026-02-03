@@ -15,7 +15,7 @@ axios
 
       containerhtml += `<div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 gy-5">
 
-    <div class="card" style="width: 18rem;" data-id = ${i}>
+    <div class="card single-pokemon" style="width: 18rem;" data-id="${i}">
   <img class="card-img-top" alt="Card image cap">
 
   <div class="card-body">
@@ -32,3 +32,11 @@ axios
     console.log('Error Notification');
     loader.classList.add('d-none');
   });
+
+containerpoke.addEventListener('click', (e) => {
+  const pokesingle = e.target.closest('.single-pokemon');
+
+  const id = pokesingle.dataset.id;
+  console.log(id);
+  console.log('Questo è il Pokémon Cliccato ' + id);
+});
