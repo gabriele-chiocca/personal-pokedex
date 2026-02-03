@@ -38,5 +38,12 @@ containerpoke.addEventListener('click', (e) => {
 
   const id = pokesingle.dataset.id;
   console.log(id);
-  console.log('Questo è il Pokémon Cliccato ' + id);
+
+  const urlSingle = pokecontent[id].url;
+  console.log(pokecontent[id].url);
+  const namePoke = pokecontent[id].name;
+  console.log(pokecontent[id].name);
+  console.log(
+    'Questo è il Pokémon Cliccato ' + id + ' ' + namePoke + ' ' + urlSingle,
+  );
 });
