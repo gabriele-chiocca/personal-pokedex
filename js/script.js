@@ -1,11 +1,14 @@
 const loader = document.getElementById('loader');
 const containerpoke = document.getElementById('pokecontainer');
 
+const overlay = document.getElementById('overlay-dark');
+
 axios
   .get('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0')
   .then((response) => {
     pokecontent = response.data.results;
     console.log(pokecontent);
+
     let containerhtml = '';
 
     loader.classList.add('d-none');
@@ -47,4 +50,19 @@ containerpoke.addEventListener('click', (e) => {
   console.log(
     'Questo è il Pokémon Cliccato ' + id + ' ' + namePoke + ' ' + urlSingle,
   );
+  axios.get(urlSingle).then((response) => {
+    let pokeurl;
+    pokeurl = response.data;
+    console.log(pokeurl);
+
+    const { sprites, name } = pokeurl;
+
+    overlay.classList.remove('d-none');
+    overlay.innerHTML = `<div class="card text-center" style="width: 20rem;">
+  <img class="card-img-top" src="${sprites.front_default}" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">${name}</p>
+  </div>
+</div>`;
+  });
 });
