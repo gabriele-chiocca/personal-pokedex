@@ -37,7 +37,7 @@ containerpoke.addEventListener('click', (e) => {
   const pokesingle = e.target.closest('.single-pokemon');
   if (!pokesingle) return false;
 
-  const id = pokesingle.dataset.id;
+  const id = parseInt(pokesingle.dataset.id);
   console.log(id);
 
   const urlSingle = pokecontent[id].url;
